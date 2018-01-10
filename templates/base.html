@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .error {
+                color: red;
+                font-style: italic;
+            }
+
+            .title {
+                font-size: 50px;
+                font-weight: bold;
+            }
+
+            .body {
+                font-size: 25px;
+            }
+
+            .body_textarea {
+                width: 200px;
+                height: 200px;
+            }
+
+            #login {
+                text-align: right;
+            }
+            a {
+                padding: 5px;
+            }
+        </style>
+    </head>
+<body>
+    <div>
+        <a href='/'>Home</a>
+        <a href='/blog'>All Posts</a>
+        <a href='/newpost'>New Post</a>
+    </div>
+    <div id=login>
+        <a href='/login'>Log in</a>
+        <a href='/logout'>Log out</a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category,message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

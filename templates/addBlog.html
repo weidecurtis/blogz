@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style='text-align:center'>Blogz!!</h1>
+
+        <form style='margin-left: 3%' method='post'>
+            <div>
+                <label>
+                    <p>Title</p>
+                    <input type="text" name='title' />
+                    <p class='error'>{{title_error}}</p>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <p>Body</p>
+                    <textarea name='body'></textarea>
+                    <p class='error'>{{body_error}}</p>
+                </label>
+            </div>
+            <input type='submit' value='Post Blog!' />
+        </form>
+
+{% endblock %}
